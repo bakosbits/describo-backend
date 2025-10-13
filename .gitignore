@@ -1,0 +1,52 @@
+# --- Secrets ---
+# Ignore environment files. These contain sensitive API keys and should NEVER be committed.
+.env
+.env.*
+!/.env.example
+
+# --- Virtual Environments ---
+# Standard Python virtual environment folders
+venv/
+.venv/
+env/
+.env/
+
+# --- Python Bytecode & Caches ---
+# Ignore Python bytecode files and cache directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- IDE / Editor Configuration ---
+# Visual Studio Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# --- Operating System Files ---
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# --- Build & Distribution ---
+# Python packaging and distribution artifacts
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# --- Testing ---
+# Ignore testing artifacts and coverage reports
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+
+# --- Log Files ---
+# Ignore log files
+*.log
+logs/

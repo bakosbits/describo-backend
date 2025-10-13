@@ -1,0 +1,34 @@
+"""
+Vercel-compatible entry point for ContractCritic FastAPI backend.
+This file imports and exposes the FastAPI app from the app/ directory.
+"""
+
+import sys
+import os
+from pathlib import Path
+
+# Add the current directory to Python path to ensure imports work
+current_dir = Path(__file__).parent
+sys.path.insert(0, str(current_dir))
+
+# Import the FastAPI app from the app directory
+try:
+    from app.main import app
+except ImportError as e:
+    # Fallback: create a simple FastAPI app if import fails
+    from fastapi import FastAPI
+    
+    app = FastAPI(title="Describo API", version="1.0.0")
+    
+@app.get("/")
+async def root():
+    # This endpoint just confirms that the API is running.
+    # It should not try to report an error.
+    return {"message": "Describo API is running"}
+   
+@app.get("/health")
+async def health():
+    return {"message": "Describo API is running"}
+
+# Export the app for Vercel
+__all__ = ["app"]

@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+supabase
+python-dotenv
+pydantic
+pydantic_settings
+stripe
+requests
+PyJWT
+openai
+python_multipart
+print
