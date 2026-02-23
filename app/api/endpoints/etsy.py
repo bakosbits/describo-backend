@@ -1,3 +1,4 @@
+"""This is the webhook endpoint for an upcoming project"""
 from supabase import create_client, Client
 from fastapi import APIRouter, Depends, HTTPException, Request, Header
 from fastapi.responses import RedirectResponse

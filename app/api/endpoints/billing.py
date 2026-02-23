@@ -1,4 +1,4 @@
-
+"""This is the billing endpoint for an upcoming project"""
 from fastapi import APIRouter, Depends, HTTPException, Request, Header
 from fastapi.responses import JSONResponse
 import stripe
@@ -21,29 +21,6 @@ from app.core.config import settings
 logger = logging.getLogger(__name__)
 
 router = APIRouter()
-
-
-
-# @app.post("/stripe/create-portal-session")
-# async def create_portal_session(current_user: dict = Depends(get_current_user)):
-#     """Creates a Stripe Customer Portal session for the user to manage their subscription."""
-#     profile = await get_user_profile_data(current_user.user.id)
-
-#     if not profile.stripe_customer_id:
-#         raise HTTPException(
-#             status_code=status.HTTP_400_BAD_REQUEST,
-#             detail="Stripe customer ID not found for this user."
-#         )
-
-#     session = stripe_service.create_portal_session(profile.stripe_customer_id)
-#     if not session:
-#         raise HTTPException(
-#             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-#             detail="Failed to create Stripe portal session."
-#         )
-
-#     return {"url": session.url}
-
 
 @router.post("/{plan}/create-checkout-session", response_model=CheckoutSessionResponse)
 async def create_checkout_session(
